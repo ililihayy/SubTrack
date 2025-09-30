@@ -1,10 +1,9 @@
 from fastapi import APIRouter
-from app.routers import user, subscription, company
+from app.routers import user, subscription, company, random
 
 api_router = APIRouter()
 
-api_router.include_router(user.router, prefix="/users", tags=["users"])
-api_router.include_router(
-    company.router, prefix="/companies", tags=["companies"])
-api_router.include_router(
-    subscription.router, prefix="/subscriptions", tags=["subscriptions"])
+api_router.include_router(user.router)
+api_router.include_router(company.router)
+api_router.include_router(subscription.router)
+api_router.include_router(random.router)
