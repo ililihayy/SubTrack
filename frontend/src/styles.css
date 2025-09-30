@@ -1,0 +1,105 @@
+:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --primary: #3b82f6;
+  --primary-600: #2563eb;
+  --border: #1f2937;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 16px 48px;
+}
+
+h2, h3 { margin: 12px 0; }
+
+
+.navbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.navlink {
+  background: var(--panel);
+  color: var(--text);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.navlink:hover { background: #0b1220; }
+.navlink.active { background: var(--primary); border-color: transparent; }
+
+button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button:hover { background: var(--primary-600); }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+button.delete { background: #dc2626; }
+button.delete:hover { background: #b91c1c; }
+
+input, select {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+table { width: 100%; border-collapse: collapse; }
+table thead th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--border);
+}
+table td { 
+  padding: 8px; 
+  border-bottom: 1px solid var(--border); 
+}
+table tbody tr:hover { background: #0b1220; }
+
+.row { display: flex; gap: 12px; align-items: center; }
+.spacer { height: 16px; }
+
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+table td input {
+  width: 220px;
+}
+
+.sub_inputs td input {
+  width: 150px;
+}
+
+.panel div[style*="display: grid"] input,
+.panel div[style*='display: grid'] input {
+  width: 100%;
+}
+
+table td button + button { margin-left: 15px; }
+.table-actions > button + button { margin-left: 15px; margin-top: 10px;}
