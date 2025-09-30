@@ -12,8 +12,9 @@ def get_subscriptions(db: Session, skip: int = 0, limit: int | None = None):
 
 
 def get_subscription(db: Session, subscription_id: int):
-    subscription = db.query(Subscription).filter(
-        Subscription.id == subscription_id).first()
+    subscription = (
+        db.query(Subscription).filter(Subscription.id == subscription_id).first()
+    )
     if not subscription:
         raise HTTPException(status_code=404, detail="Subscription not found.")
     return subscription
@@ -30,12 +31,15 @@ def create_subscription(db: Session, subscription: SubscriptionCreate):
     return db_subscription
 
 
-def update_subscription(db: Session, subscription_id: int, subscription_update: SubscriptionUpdate):
+def update_subscription(
+    db: Session, subscription_id: int, subscription_update: SubscriptionUpdate
+):
     if subscription_id <= 0:
         raise HTTPException(status_code=400, detail="Invalid subscription ID.")
 
-    db_subscription = db.query(Subscription).filter(
-        Subscription.id == subscription_id).first()
+    db_subscription = (
+        db.query(Subscription).filter(Subscription.id == subscription_id).first()
+    )
     if not db_subscription:
         raise HTTPException(status_code=404, detail="Subscription not found.")
 
@@ -49,8 +53,9 @@ def update_subscription(db: Session, subscription_id: int, subscription_update: 
 
 
 def delete_subscription(db: Session, subscription_id: int):
-    db_subscription = db.query(Subscription).filter(
-        Subscription.id == subscription_id).first()
+    db_subscription = (
+        db.query(Subscription).filter(Subscription.id == subscription_id).first()
+    )
     if not db_subscription:
         raise HTTPException(status_code=404, detail="Subscription not found.")
 

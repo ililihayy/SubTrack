@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional
 
+
 class CompanyBase(BaseModel):
     business_name: str
     industry: Optional[str] = None
