@@ -24,7 +24,9 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
 
 
 @router.patch("/{user_id}", response_model=schemas.User)
-def update_user(user_id: int, user_update: schemas.UserUpdate, db: Session = Depends(get_db)):
+def update_user(
+    user_id: int, user_update: schemas.UserUpdate, db: Session = Depends(get_db)
+):
     return crud.update_user(db, user_id, user_update)
 
 

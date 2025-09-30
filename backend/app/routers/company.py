@@ -9,7 +9,9 @@ router = APIRouter(prefix="/companies", tags=["companies"])
 
 
 @router.get("/", response_model=List[schemas.Company])
-def list_companies(skip: int = 0, limit: int | None = 100, db: Session = Depends(get_db)):
+def list_companies(
+    skip: int = 0, limit: int | None = 100, db: Session = Depends(get_db)
+):
     return crud.get_companies(db, skip=skip, limit=limit)
 
 
@@ -24,7 +26,11 @@ def create_company(company: schemas.CompanyCreate, db: Session = Depends(get_db)
 
 
 @router.patch("/{company_id}", response_model=schemas.Company)
-def update_company(company_id: int, company_update: schemas.CompanyUpdate, db: Session = Depends(get_db)):
+def update_company(
+    company_id: int,
+    company_update: schemas.CompanyUpdate,
+    db: Session = Depends(get_db),
+):
     return crud.update_company(db, company_id, company_update)
 
 
