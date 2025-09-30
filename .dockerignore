@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# Logs
+*.log
+
+# SQLite DB
+*.db
+
+# Git
+.git
+.gitignore
+
+# Node.js
+node_modules/
+
+# IDE / Editor
+.vscode/
+.idea/
