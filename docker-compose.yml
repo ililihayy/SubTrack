@@ -6,12 +6,16 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     container_name: backend
+    environment:
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
     ports:
-      - "8000:8000"
+      - "${API_PORT}:${API_PORT}"
     volumes:
-      - ./backend:/app
+      - ./backend:/app     
+      - ./backend/data:/data
     depends_on:
-      - db
+      - frontend
 
   frontend:
     build:
@@ -24,11 +28,3 @@ services:
       - ./frontend:/app
     environment:
       - REACT_APP_API_BASE=http://localhost:8000
-    depends_on:
-      - backend
-
-  db:
-    image: nouchka/sqlite3
-    container_name: sqlite
-    volumes:
-      - ./backend/app.db:/data/app.db
