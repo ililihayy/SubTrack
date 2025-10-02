@@ -16,7 +16,6 @@ def fetch_with_fallback(path: str, size: int) -> List[Dict[str, Any]]:
                 data = [data]
             return data
         except httpx.HTTPError:
-            # Fallback: кілька запитів
             try:
                 items: List[Dict[str, Any]] = []
                 for _ in range(max(1, size)):
