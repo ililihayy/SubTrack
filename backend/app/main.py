@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from app.routers.api import api_router
 from app.database import Base, engine
+from app.models import *
 from fastapi.middleware.cors import CORSMiddleware
 
 
